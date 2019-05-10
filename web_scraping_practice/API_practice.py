@@ -19,10 +19,23 @@ def get_player_info(player_name):
 
     response = requests.get(api_url, headers=headers)
 
-    if response.status_code == 200:
+    if response.status_code >= 500:
+        print('[!] [{0}] Server Error'.format(response.status_code))
+        return None
+    elif response.status_code == 404:
+        print('[!] [{0}] URL not found: [{1}]'.format(response.status_code,api_url))
+        return None
+    elif response.status_code == 401:
+        print('[!] [{0}] Authentication Failed'.format(response.status_code))
+        return None
+    elif response.status_code >= 300:
+        print('[!] [{0}] Unexpected Redirect'.format(response.status_code))
+        return None
+    elif response.status_code == 200:
         return json.loads(response.content)
     else:
-        return None
+        print('[?] Unexpected Error: [HTTP {0}]: Content: {1}'.format(response.status_code,response.content))
+    return None
 
 
 player_info = get_player_info('pathselector')
@@ -49,6 +62,7 @@ final_dict = player_dict[0]
 if player_info is not None:
     print("Here's your info:")
     for k, v in final_dict.items():
-        print(k, ":", v)
+        print("{0}: {1}".format(k, v))
 else:
     print('[!] Request Failed')
+
