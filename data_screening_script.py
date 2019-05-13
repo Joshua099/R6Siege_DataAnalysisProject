@@ -67,3 +67,39 @@ with engine.connect() as con:
 
     con.close()
 
+# Trying SQL UNION
+
+with engine.connect() as con:
+
+    union_query = """SELECT * FROM %s UNION SELECT * FROM %s UNION SELECT * FROM %s"""
+
+    test = con.execute(union_query % ('r6_leaderboard_database.na_leaderboard',
+                                      'r6_leaderboard_database.eu_leaderboard',
+                                      'r6_leaderboard_database.as_leaderboard'))
+
+    # Attempts to get it to work...
+    
+    # for row in test:
+    #     print(row)
+    #
+    # test_df = pd.read_sql_query(sql=union_query % ('r6_leaderboard_database.na_leaderboard',
+    #                                          'r6_leaderboard_database.eu_leaderboard',
+    #                                          'r6_leaderboard_database.as_leaderboard'),
+    #                       con=con,
+    #                       index_col=False,
+    #                       chunksize=1000
+    #                       )
+    #
+    # print(list(test_df))
+
+    df = pd.DataFrame(test.fetchall())
+    df.columns = test.keys()
+
+    con.close()
+
+print(df)
+
+df.to_sql(name='all_leaderboard', con=engine,
+          if_exists='replace', index=False, chunksize=1000)
+
+print('good to go')
