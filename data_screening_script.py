@@ -52,3 +52,18 @@ with engine.connect() as con:
         print("Already Deleted")
 
     con.close()
+
+# Real Run
+with engine.connect() as con:
+    try:
+        sql_delete_query = """ALTER TABLE %s DROP COLUMN %s"""
+        con.execute(sql_delete_query % ('r6_leaderboard_database.na_leaderboard', 'p_NA_currentmmr'))
+        con.execute(sql_delete_query % ('r6_leaderboard_database.eu_leaderboard', 'p_EU_currentmmr'))
+        con.execute(sql_delete_query % ('r6_leaderboard_database.as_leaderboard', 'p_AS_currentmmr'))
+
+        print('delete done')
+    except:
+        print("Already Deleted")
+
+    con.close()
+
