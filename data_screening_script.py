@@ -103,3 +103,40 @@ df.to_sql(name='all_leaderboard', con=engine,
           if_exists='replace', index=False, chunksize=1000)
 
 print('good to go')
+
+# Further Data cleansing is required. First, the data types of the columns are all in TEXT. We need to change some
+# into number data types to be able to run analysis on them.
+
+# For example, the kd column is actually a ratio column.
+
+# player One.TT has a kd of 251, which should be 2.51. So we need to do this calculation (kd / 100)
+
+# similar situation for p_headshotaccuracy.
+
+# One.TT has a hs accuracy of 64,590,000. This should be a percentage (64.59%): (p_headshotacc / 1,000,000)
+
+# Other columns such as p_currentmmr should simply be an integer column.
+
+with engine.connect() as con:
+
+    aggregate_query = """
+                      SELECT p_name,
+                             cast(kd / 100 as decimal(10,2)) as kd_ratio, 
+                             cast(p_headshotacc / 1000000 as decimal(10,2)) as p_headshotacc,
+                             cast(p_currentmmr as UNSIGNED) as p_currentmmr,
+                             cast(p_level as UNSIGNED) as p_level,
+                             cast(p_skillrating as UNSIGNED) as p_skillrating
+                        FROM all_leaderboard
+                      """
+
+    aggregate_exec = con.execute(aggregate_query)
+
+    df_aggregate = pd.DataFrame(aggregate_exec.fetchall())
+    df_aggregate.columns = aggregate_exec.keys()
+    print(df_aggregate)
+
+    con.close()
+
+df_aggregate.to_sql(name='training', con=engine,
+          if_exists='replace', index=False, chunksize=1000)
+print('good to go')
