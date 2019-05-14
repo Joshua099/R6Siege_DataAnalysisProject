@@ -3,6 +3,7 @@ import sqlalchemy
 import statsmodels.formula.api as sm
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 # Log in information for mysql server
 user = 'root'
 passw = 'ops011260910'
