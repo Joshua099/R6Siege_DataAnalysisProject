@@ -16,35 +16,51 @@ engine_stmt = 'mysql+mysqlconnector://%s:%s@%s:3306/%s' % (user, passw, host, da
 
 engine = sqlalchemy.create_engine(engine_stmt)
 
-# OLS of kd_ratio on p_currentmmr
+# EDA of kd_ratio on p_currentmmr
 
-query1 = """SELECT kd_ratio, p_currentmmr FROM r6_leaderboard_database.training"""
-df1 = pd.read_sql(query1, con=engine)
+query = """SELECT kd_ratio, p_currentmmr FROM r6_leaderboard_database.training"""
+df = pd.read_sql(query, con=engine)
 
-result = sm.ols(formula="p_currentmmr ~ kd_ratio", data=df1).fit()
+result = sm.ols(formula="p_currentmmr ~ kd_ratio", data=df).fit()
 
-print(result.params)
 print(result.summary())
 
-sns.lmplot(x='kd_ratio', y='p_currentmmr', data=df1, height=12)
+sns.lmplot(x='kd_ratio', y='p_currentmmr', data=df, height=8)
 plt.show()
 
 
-# OLS of kd_ratio + p_headshotacc on p_currentmmr
+# EDA of p_headshotacc on p_currentmmr
 
-query2 = """SELECT kd_ratio, p_headshotacc, p_currentmmr FROM r6_leaderboard_database.training"""
-df2 = pd.read_sql(query2, con=engine)
+query = """SELECT p_headshotacc, p_currentmmr FROM r6_leaderboard_database.training"""
+df = pd.read_sql(query, con=engine)
 
-result2 = sm.ols(formula="p_currentmmr ~ kd_ratio + p_headshotacc", data=df2).fit()
+result = sm.ols(formula="p_currentmmr ~ p_headshotacc", data=df).fit()
 
-print(result2.summary())
+print(result.summary())
+
+sns.lmplot(x='p_headshotacc', y='p_currentmmr', data=df, height=8)
+plt.show()
+
+# EDA of p_skillrating on p_currentmmr
+
+query = """SELECT p_skillrating, p_currentmmr FROM r6_leaderboard_database.training"""
+df = pd.read_sql(query, con=engine)
+
+result = sm.ols(formula="p_currentmmr ~ p_skillrating", data=df).fit()
+
+print(result.summary())
+
+sns.lmplot(x='p_skillrating', y='p_currentmmr', data=df, height=8)
+plt.show()
 
 
-# OLS of kd_ratio + p_headshotacc + p_skillrating on p_currentmmr
+# Multiple OLS of kd_ratio + p_headshotacc + p_skillrating on p_currentmmr
 
-query3 = """SELECT kd_ratio, p_headshotacc, p_skillrating, p_currentmmr FROM r6_leaderboard_database.training"""
-df3 = pd.read_sql(query3, con=engine)
+query = """SELECT kd_ratio, p_headshotacc, p_skillrating, p_currentmmr FROM r6_leaderboard_database.training"""
+df = pd.read_sql(query, con=engine)
 
-result3 = sm.ols(formula="p_currentmmr ~ kd_ratio + p_headshotacc + p_skillrating", data=df3).fit()
+result = sm.ols(formula="p_currentmmr ~ kd_ratio + p_headshotacc + p_skillrating", data=df).fit()
 
-print(result3.summary())
+print(result.summary())
+
+
