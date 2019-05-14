@@ -17,7 +17,7 @@ all = pd.DataFrame(all_leaderboard_info)
 
 # Log in information for mysql server
 user = 'root'
-passw = 'ops011260910'
+passw = 'pw'
 host = 'localhost'
 database = 'r6_leaderboard_database'
 
