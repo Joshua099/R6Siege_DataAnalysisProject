@@ -1,5 +1,9 @@
 # R6Siege_DataAnalysisProject
 
+**Special thanks to R6Tab for their unofficial Rainbow Six Siege API**
+
+**https://github.com/Tabwire/R6Tab-API**
+
 This is a passion project related to a video game I enjoy playing called Rainbow Six Siege. Rainbow Six Siege has a competitive ranked  5v5 mode that gives players a matchmaking rating (MMR) based on variables such as games won/lost. Many of the game's players feel that the game's current rating system is flawed. R6Tab is a 3rd party stat tracker website created by hardcore fans of the game. They created a new rating system based on R6's MMR system, but also included other variables into the calculation, such as a kills to deaths ratio. In a video game where victory is possible simply by killing your opponents, K:D ratio is crucial in determining how skilled an individual is.
 
 "The new r6tab ranking system gives you a rank based on your skill level rather than a rank purely based on winning games."
@@ -17,9 +21,9 @@ Thanks to this project, I am a lot more experienced in both these languages.
 
 - The entire project process from start to finish is documented in the Jupyter Notebook named " ". Start here.
 
-- The Practice Files Folder is there just for those curious to see all my attempts to get things to work. It's a mess and is intended to stay that way.
+- The Practice Files Folder are there just for those curious to see all my attempts to get things to work. It's a mess and is intended to stay that way.
 
-- r6-leaderboard-functions.py are the python functions i coded to interact with R6TAB's API.
+- r6-leaderboard-functions.py are the python functions I coded to interact with R6TAB's API.
 
 - Anything not labeled as practice are scripts that are basically compiled into the Jupyter Notebook. 
 
