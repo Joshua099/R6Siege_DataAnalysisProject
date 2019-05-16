@@ -1,10 +1,12 @@
 # R6Siege_DataAnalysisProject
 
-This is a passion project related to a video game I enjoy playing. Rainbow Six Siege has a competitive ranked mode that gives players a matchmaking rating (MMR) based on variables such as games won/lost. Many of the game's players feel that the game's current rating system is flawed. R6Tab is a 3rd party stat tracker website created by hardcore fans of the game. They created a new rating system based on R6's MMR system, but also included other variables into the calculation, such as a kills to deaths ratio. In a video game where victory is possible simply by killing your opponents, K:D ratio is crucial in determining how skilled an individual is.
+This is a passion project related to a video game I enjoy playing called Rainbow Six Siege. Rainbow Six Siege has a competitive ranked  5v5 mode that gives players a matchmaking rating (MMR) based on variables such as games won/lost. Many of the game's players feel that the game's current rating system is flawed. R6Tab is a 3rd party stat tracker website created by hardcore fans of the game. They created a new rating system based on R6's MMR system, but also included other variables into the calculation, such as a kills to deaths ratio. In a video game where victory is possible simply by killing your opponents, K:D ratio is crucial in determining how skilled an individual is.
 
 "The new r6tab ranking system gives you a rank based on your skill level rather than a rank purely based on winning games."
 
-I decided to get some insight into the problem and do some analysis. I wanted to achieve this using popular data analysis tools:
+However, many fans of R6Tab have complained that the website's new skill rating is too heavily influenced by just Kill:Death ratio, and is easily exploited by players whose playstyles are based on getting absurd amounts of kills. Rainbow Six Siege is a very complicated team-based game. There are more variables that lead to victory than just how many kills an individual gets. Many top-tier players find themselves in the top of the leaderboards by being good at the game in other ways. Some examples include being a good captain and calling out important information, or being a good support by setting up a good defense for their teammates.
+
+I decided to get some insight into just how much K:D ratio affects R6Tab's new skill rating and do some analysis. I wanted to achieve this using popular data analysis tools:
 
 1) Python - for data scraping, screening, and analysis scripts
 2) SQL - for data table storage (mySQL server) and easy manipulation/aggregates of important statistical data
