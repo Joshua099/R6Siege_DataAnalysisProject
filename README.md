@@ -12,8 +12,8 @@ However, many fans of R6Tab have complained that the website's new skill rating 
 
 I decided to get some insight into just how much K:D ratio affects R6Tab's new skill rating and do some analysis. I wanted to achieve this using popular data analysis tools:
 
-1) Python - for data scraping, screening, and analysis scripts
-2) SQL - for data table storage (mySQL server) and easy query aggregates of important statistical data
+1) **Python** - for data scraping, screening, and analysis scripts
+2) **SQL** - for data table storage (mySQL server) and easy query aggregates of important statistical data
 
 Thanks to this project, I am a lot more experienced in both these languages. 
 
