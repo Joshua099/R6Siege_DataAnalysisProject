@@ -14,7 +14,6 @@ import random
 import username_generator
 
 screennames = []
-count = 0
 minimum_char = 1
 maximum_char = 15
 
