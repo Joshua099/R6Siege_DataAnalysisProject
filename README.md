@@ -19,7 +19,7 @@ Thanks to this project, I am a lot more experienced in both these languages.
 
 **"WHAT AM I LOOKING AT HERE?"**
 
-- The entire project process from start to finish is documented in the Jupyter Notebook named " ". Start here.
+- **r6_DA_process.ipynb.** The entire project process from start to finish is documented in this Jupyter Notebook. Start here.
 
 - The Practice Files Folder are there just for those curious to see all my attempts to get things to work. It's a mess and is intended to stay that way.
 
