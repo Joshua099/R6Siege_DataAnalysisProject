@@ -31,7 +31,7 @@ Thanks to this project, I am a lot more experienced in both these languages.
 
 
 **LIMITATIONS:**
-This analysis has a very small sample size. R6TAB's API had a leaderboard call parameters that made it easy to pull information on up to 300 players. I decided to code with this in mind. With that said, there is certainly low statistical power and bias present. I talk more about this in the Jupyter Notebook report.
+This analysis has a very small sample size. R6TAB's API had a leaderboard call parameters that made it easy to pull information on up to 300 players. I decided to code with this in mind. With that said, there is certainly low statistical power and bias present. The variables R6TAB's API provides is also a bit of limitation. I formed by analysis based on the variables given to me. I talk a bit more about limitations in the report.
 
 **DISCLAIMER:**
 The PUBLIC version of this REPO will not have any of the commits I worked on. The reason being that since this was my first time working on a full project in GitHub, i accidently uploaded some login credentials that are present in some of the scripts into the PRIVATE version of this REPO thinking I could permanently delete them through commits. I was wrong... (:
