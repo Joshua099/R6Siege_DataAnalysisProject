@@ -21,7 +21,7 @@ Thanks to this project, I am a lot more experienced in both these languages.
 
 - **r6_DA_process.ipynb.** The entire project process from start to finish is documented in this Jupyter Notebook. Start here.
 
-- The Practice Files Folder are there just for those curious to see all my attempts to get things to work. It's a mess and is intended to stay that way.
+- The **web_scraping_practice** folder files are there just for those curious to see all my attempts to get things to work. It's a mess and is intended to stay that way.
 
 - r6-leaderboard-functions.py are the python functions I coded to interact with R6TAB's API.
 
